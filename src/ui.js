@@ -10,7 +10,12 @@ import { InputNode } from './nodes/inputNode';
 import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
+import { LoggerNode } from './nodes/LoggerNode';
 import { UpperCaseNode } from './nodes/UppercaseNode';
+import { NumberNode } from './nodes/NumberNode';
+import { BooleanNode } from './nodes/BooleanNode';
+import { DelayNode } from './nodes/DelayNode';
+
 
 import 'reactflow/dist/style.css';
 
@@ -21,7 +26,11 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  logger: LoggerNode,
   uppercase: UpperCaseNode,
+  number: NumberNode,
+  boolean: BooleanNode,
+  delay: DelayNode,
 };
 
 const selector = (state) => ({
