@@ -13,16 +13,15 @@ export const NumberNode = ({ id, data }) => {
                 { type: "source", position: Position.Right, id: `${id}-number` }
             ]}
         >
-
-            <label>
-                Value:
+            <div className="space-y-1">
+                <label className="block text-xs font-medium text-text-secondary">Value</label>
                 <input
                     type="number"
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
+                    className="w-full px-2 py-1 text-xs border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1"
                 />
-            </label>
-
+            </div>
         </BaseNode>
     );
 };

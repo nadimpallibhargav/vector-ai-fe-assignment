@@ -3,10 +3,10 @@
 import { DraggableNode } from './draggableNode';
 
 export const PipelineToolbar = () => {
-
     return (
-        <div style={{ padding: '10px' }}>
-            <div style={{ marginTop: '20px', display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+        <div className="bg-white border-b border-border px-6 py-4 shadow-sm">
+            <h2 className="text-sm font-semibold text-text-primary mb-4">Pipeline Nodes</h2>
+            <div className="flex flex-wrap gap-3">
                 <DraggableNode type='customInput' label='Input' />
                 <DraggableNode type='llm' label='LLM' />
                 <DraggableNode type='customOutput' label='Output' />
