@@ -54,21 +54,26 @@ export const TextNode = ({ id, data }) => {
   };
 
   return (
-    <div ref={nodeRef} style={{ width, minHeight: MIN_HEIGHT, border: '1px solid black', position: 'relative' }}>
-      <div><span>Text</span></div>
+    <div 
+      ref={nodeRef} 
+      className="bg-white rounded-lg border border-border shadow-node hover:shadow-lg transition-shadow p-4 relative"
+      style={{ width, minHeight: MIN_HEIGHT }}
+    >
+      <div className="flex items-center gap-2 mb-3">
+        <div className="w-2 h-2 rounded-full bg-primary"></div>
+        <span className="font-semibold text-text-primary text-sm">Text</span>
+      </div>
 
-      <div>
-        <label>
-          Text:
-          <textarea
-            ref={textareaRef}
-            value={currText}
-            onChange={handleTextChange}
-            rows={1}
-            style={{ width: '100%', resize: 'none', overflow: 'hidden', boxSizing: 'border-box' }}
-            spellCheck={false}
-          />
-        </label>
+      <div className="space-y-2">
+        <label className="block text-xs font-medium text-text-secondary">Content</label>
+        <textarea
+          ref={textareaRef}
+          value={currText}
+          onChange={handleTextChange}
+          rows={1}
+          className="w-full px-2 py-1 text-xs border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1 resize-none overflow-hidden"
+          spellCheck={false}
+        />
       </div>
 
       {variables.map((varName, index) => (
@@ -79,7 +84,7 @@ export const TextNode = ({ id, data }) => {
             id={`${id}-var-${varName}`}
             style={{ top: getHandleTop(index, variables.length) }}
           />
-          <div style={{ position: 'absolute', left: 10, top: getHandleTop(index, variables.length) - 9, fontSize: 10 }}>
+          <div className="absolute text-xs font-mono text-text-secondary" style={{ left: 10, top: getHandleTop(index, variables.length) - 9 }}>
             {`{{${varName}}}`}
           </div>
         </div>

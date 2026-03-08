@@ -16,26 +16,32 @@ export const InputNode = ({ id, data }) => {
   };
 
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
-      <div>
-        <span>Input</span>
+    <div className="w-56 bg-white rounded-lg border border-border shadow-node hover:shadow-lg transition-shadow p-4">
+      <div className="flex items-center gap-2 mb-3">
+        <div className="w-2 h-2 rounded-full bg-success"></div>
+        <span className="font-semibold text-text-primary text-sm">Input</span>
       </div>
-      <div>
-        <label>
-          Name:
+      <div className="space-y-3">
+        <div className="space-y-1">
+          <label className="block text-xs font-medium text-text-secondary">Name</label>
           <input 
             type="text" 
             value={currName} 
-            onChange={handleNameChange} 
+            onChange={handleNameChange}
+            className="w-full px-2 py-1 text-xs border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1"
           />
-        </label>
-        <label>
-          Type:
-          <select value={inputType} onChange={handleTypeChange}>
+        </div>
+        <div className="space-y-1">
+          <label className="block text-xs font-medium text-text-secondary">Type</label>
+          <select 
+            value={inputType} 
+            onChange={handleTypeChange}
+            className="w-full px-2 py-1 text-xs border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-1"
+          >
             <option value="Text">Text</option>
             <option value="File">File</option>
           </select>
-        </label>
+        </div>
       </div>
       <Handle
         type="source"
