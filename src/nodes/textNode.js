@@ -40,11 +40,12 @@ export const TextNode = ({ id, data }) => {
     setWidth(calcWidth(text));
   }, []);
 
-  useEffect(() => { recalculate(currText); }, []);
+  useEffect(() => {
+    recalculate(currText);
+  }, [currText, recalculate]);
 
   const handleTextChange = (e) => {
     setCurrText(e.target.value);
-    recalculate(e.target.value);
   };
 
   const getHandleTop = (index, total) => {
@@ -54,18 +55,19 @@ export const TextNode = ({ id, data }) => {
   };
 
   return (
-    <div ref={nodeRef} style={{ width, minHeight: MIN_HEIGHT, border: '1px solid black', position: 'relative' }}>
-      <div><span>Text</span></div>
+    <div ref={nodeRef} className="base-node text-node" style={{ width, minHeight: MIN_HEIGHT }}>
+      <div className="base-node-title">Text</div>
 
-      <div>
-        <label>
-          Text:
+      <div className="base-node-content">
+        <label className="base-node-field">
+          <span>Template</span>
           <textarea
             ref={textareaRef}
             value={currText}
             onChange={handleTextChange}
             rows={1}
-            style={{ width: '100%', resize: 'none', overflow: 'hidden', boxSizing: 'border-box' }}
+            className="base-node-input text-node-input"
+            style={{ overflow: 'hidden' }}
             spellCheck={false}
           />
         </label>
@@ -78,8 +80,9 @@ export const TextNode = ({ id, data }) => {
             position={Position.Left}
             id={`${id}-var-${varName}`}
             style={{ top: getHandleTop(index, variables.length) }}
+            className="node-handle"
           />
-          <div style={{ position: 'absolute', left: 10, top: getHandleTop(index, variables.length) - 9, fontSize: 10 }}>
+          <div className="text-node-var" style={{ top: getHandleTop(index, variables.length) - 9 }}>
             {`{{${varName}}}`}
           </div>
         </div>
@@ -89,6 +92,7 @@ export const TextNode = ({ id, data }) => {
         type="source"
         position={Position.Right}
         id={`${id}-output`}
+        className="node-handle"
       />
     </div>
   );

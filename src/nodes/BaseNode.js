@@ -2,10 +2,10 @@ import { Handle } from "reactflow";
 
 export const BaseNode = ({ title, children, handles }) => {
     return (
-        <div style={{ width: 200, minHeight: 80, border: "1px solid black"}}>
-            <div><strong>{title}</strong></div>
+        <div className="base-node">
+            <div className="base-node-title">{title}</div>
 
-            <div>{children}</div>
+            <div className="base-node-content">{children}</div>
 
             {handles?.map((h, index) => (
                 <Handle
@@ -13,6 +13,7 @@ export const BaseNode = ({ title, children, handles }) => {
                     type={h.type}
                     position={h.position}
                     id={h.id}
+                    className="node-handle"
                 />
             ))}
         </div>

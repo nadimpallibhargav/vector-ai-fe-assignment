@@ -16,22 +16,21 @@ export const InputNode = ({ id, data }) => {
   };
 
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
-      <div>
-        <span>Input</span>
-      </div>
-      <div>
-        <label>
-          Name:
+    <div className="base-node">
+      <div className="base-node-title">Input</div>
+      <div className="base-node-content base-node-form">
+        <label className="base-node-field">
+          <span>Name</span>
           <input 
+            className="base-node-input"
             type="text" 
             value={currName} 
             onChange={handleNameChange} 
           />
         </label>
-        <label>
-          Type:
-          <select value={inputType} onChange={handleTypeChange}>
+        <label className="base-node-field">
+          <span>Type</span>
+          <select className="base-node-input" value={inputType} onChange={handleTypeChange}>
             <option value="Text">Text</option>
             <option value="File">File</option>
           </select>
@@ -41,6 +40,7 @@ export const InputNode = ({ id, data }) => {
         type="source"
         position={Position.Right}
         id={`${id}-value`}
+        className="node-handle"
       />
     </div>
   );

@@ -14,9 +14,10 @@ export const NumberNode = ({ id, data }) => {
             ]}
         >
 
-            <label>
-                Value:
+            <label className="base-node-field">
+                <span>Value</span>
                 <input
+                    className="base-node-input"
                     type="number"
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}

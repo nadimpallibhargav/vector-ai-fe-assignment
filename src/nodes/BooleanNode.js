@@ -13,8 +13,8 @@ export const BooleanNode = ({ id, data }) => {
                 { type: "source", position: Position.Right, id: `${id}-value` }
             ]}
         >
-            <label>
-                Value:
+            <label className="base-node-field base-node-checkbox">
+                <span>Value</span>
                 <input
                     type="checkbox"
                     checked={value}

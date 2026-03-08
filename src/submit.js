@@ -34,8 +34,10 @@ export const SubmitButton = () => {
     };
 
     return (
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <button onClick={handleSubmit}>Submit</button>
+        <div className="submit-section">
+            <button className="submit-button" onClick={handleSubmit}>
+                Analyze Pipeline
+            </button>
         </div>
     );
 };

@@ -5,29 +5,28 @@ import { Handle, Position } from 'reactflow';
 export const LLMNode = ({ id, data }) => {
 
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
+    <div className="base-node">
       <Handle
         type="target"
         position={Position.Left}
         id={`${id}-system`}
         style={{top: `${100/3}%`}}
+        className="node-handle"
       />
       <Handle
         type="target"
         position={Position.Left}
         id={`${id}-prompt`}
         style={{top: `${200/3}%`}}
+        className="node-handle"
       />
-      <div>
-        <span>LLM</span>
-      </div>
-      <div>
-        <span>This is a LLM.</span>
-      </div>
+      <div className="base-node-title">LLM</div>
+      <div className="base-node-content">Prompt in, response out</div>
       <Handle
         type="source"
         position={Position.Right}
         id={`${id}-response`}
+        className="node-handle"
       />
     </div>
   );

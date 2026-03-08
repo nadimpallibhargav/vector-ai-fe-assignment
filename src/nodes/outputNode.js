@@ -16,27 +16,27 @@ export const OutputNode = ({ id, data }) => {
   };
 
   return (
-    <div style={{width: 200, height: 80, border: '1px solid black'}}>
+    <div className="base-node">
       <Handle
         type="target"
         position={Position.Left}
         id={`${id}-value`}
+        className="node-handle"
       />
-      <div>
-        <span>Output</span>
-      </div>
-      <div>
-        <label>
-          Name:
+      <div className="base-node-title">Output</div>
+      <div className="base-node-content base-node-form">
+        <label className="base-node-field">
+          <span>Name</span>
           <input 
+            className="base-node-input"
             type="text" 
             value={currName} 
             onChange={handleNameChange} 
           />
         </label>
-        <label>
-          Type:
-          <select value={outputType} onChange={handleTypeChange}>
+        <label className="base-node-field">
+          <span>Type</span>
+          <select className="base-node-input" value={outputType} onChange={handleTypeChange}>
             <option value="Text">Text</option>
             <option value="File">Image</option>
           </select>
